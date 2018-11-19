@@ -158,7 +158,5 @@ function number_of_series($pdo){
             $series_exp[$key][$user_key] = htmlspecialchars($user_input);
         }
     }
-
-    $counted_series = count($series_exp);
-    return($counted_series);
+    return $series_exp;
 }

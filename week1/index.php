@@ -12,7 +12,7 @@ include 'model.php';
 $db = connect_db('localhost', 'ddwt18_week1', 'ddwt18', 'ddwt18');
 
 /** @var TYPE_NAME $no_of_series */
-$no_of_series = number_of_series($db);
+$no_of_series = sizeof(get_series($db));
 
 /* Landing page */
 if (new_route('/DDWT18/week1/', 'get')) {

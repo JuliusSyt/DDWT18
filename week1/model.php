@@ -14,12 +14,11 @@
 function connect_db($host, $db, $user, $pass){
     $charset = 'utf8mb4';
 
-    $dsn = "mysql:host=$host; dbname=$db; charset=$charset";
+    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
     $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ];
-
     try {
         $pdo = new PDO($dsn, $user, $pass, $options);
     } catch (\PDOException $e) {
@@ -32,6 +31,21 @@ function connect_db($host, $db, $user, $pass){
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+function get_series($pdo){
+    $stmt = $pdo->prepare('SELECT * FROM ddwt18_week1');
+    $stmt->execute();
+    $series = $stmt->fetchAll();
+    $series_exp = Array();
+
+    /* Create array with htmlspecialchars */
+    foreach ($series as $key => $value){
+        foreach ($value as $user_key => $user_input) {
+            $series_exp[$key][$user_key] = htmlspecialchars($user_input);
+        }
+    }
+    return $series_exp;
+}
 
 /**
  * Check if the route exist
@@ -142,21 +156,3 @@ function get_error($feedback){
     return $error_exp;
 }
 
-/**
- * @param $pdo
- * @return array
- */
-function number_of_series($pdo){
-    $stmt = $pdo->prepare('SELECT * FROM series');
-    $stmt->execute();
-    $series = $stmt->fetchAll();
-    $series_exp = Array();
-
-    /* Create array with htmlspecialchars */
-    foreach ($series as $key => $value){
-        foreach ($value as $user_key => $user_input) {
-            $series_exp[$key][$user_key] = htmlspecialchars($user_input);
-        }
-    }
-    return $series_exp;
-}

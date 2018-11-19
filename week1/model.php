@@ -141,3 +141,24 @@ function get_error($feedback){
         </div>';
     return $error_exp;
 }
+
+/**
+ * @param $pdo
+ * @return array
+ */
+function number_of_series($pdo){
+    $stmt = $pdo->prepare('SELECT * FROM series');
+    $stmt->execute();
+    $series = $stmt->fetchAll();
+    $series_exp = Array();
+
+    /* Create array with htmlspecialchars */
+    foreach ($series as $key => $value){
+        foreach ($value as $user_key => $user_input) {
+            $series_exp[$key][$user_key] = htmlspecialchars($user_input);
+        }
+    }
+
+    $counted_series = count($series_exp);
+    return($counted_series);
+}

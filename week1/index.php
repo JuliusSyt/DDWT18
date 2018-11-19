@@ -8,9 +8,6 @@
 
 include 'model.php';
 
-/* conntect to database */
-$db = connect_db('localhost', 'ddwt18_week1', 'ddwt18', 'ddwt18')
-
 /* Landing page */
 if (new_route('/DDWT18/week1/', 'get')) {
     /* Page info */

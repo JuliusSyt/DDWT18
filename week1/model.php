@@ -99,7 +99,7 @@ function get_serie_table($series)
  * @return array
  */
 
-function add_series($pdo, $name, $creator, $seasons, $abstract)
+function add_series($pdo, $serie_info)
 {
     $stmt = $pdo->prepare("INSERT INTO ddwt18_week1 (Name, Creator, Seasons, Abstract) VALUES (?, ?, ?, ?)");
     $stmt->execute([

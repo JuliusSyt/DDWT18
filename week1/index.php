@@ -66,8 +66,7 @@ elseif (new_route('/DDWT18/week1/overview/', 'get')) {
 /* Single Serie */
 elseif (new_route('/DDWT18/week1/serie/', 'get')) {
     /* Get series from db */
-    $serie_id = 1;
-    $serie_info = get_series_info($db, $serie_id);
+    $serie_info = get_series_info($db, get_series($db)['id']);
     $serie_name = $serie_info['Name'];
     $serie_abstract = $serie_info['Abstract'];
     $nbr_seasons = $serie_info['Seasons'];

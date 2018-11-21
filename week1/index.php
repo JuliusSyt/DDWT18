@@ -58,7 +58,27 @@ elseif (new_route('/DDWT18/week1/overview/', 'get')) {
     $right_column = use_template('cards');
     $page_subtitle = 'The overview of all series';
     $page_content = 'Here you find all series listed on Series Overview.';
-    $left_content = get_serie_table(get_series($db));
+    $left_content = '
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Series</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">House of Cards</th>
+            <td><a href="/DDWT18/week1/serie/" role="button" class="btn btn-primary">More info</a></td>
+        </tr>
+
+        <tr>
+            <th scope="row">Game of Thrones</th>
+            <td><a href="/DDWT18/week1/serie/" role="button" class="btn btn-primary">More info</a></td>
+        </tr>
+
+        </tbody>
+    </table>';
 
     /* Choose Template */
     include use_template('main');

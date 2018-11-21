@@ -94,6 +94,31 @@ function get_serie_table($series)
 }
 
 /**
+ * @param $pdo
+ * @param $serie_id
+ * @return array
+ */
+
+
+/**
+function get_series_info($pdo, $serie_id)
+{
+    $stmt = $pdo->prepare('SELECT * FROM ddwt18_week1 WHERE id = ?');
+    $stmt->execute([$serie_id]);
+    $serie_info = $stmt->fetch();
+    $serie_info_exp = Array();
+    /* Create array with htmlspecialchars */
+    /**
+    foreach ($serie_info as $key => $value){
+        $serie_info_exp[$key] = htmlspecialchars($value);
+    }
+    return $serie_info_exp;
+
+}
+*/
+
+
+/**
  * Check if the route exist
  * @param string $route_uri URI to be matched
  * @param string $request_type request method

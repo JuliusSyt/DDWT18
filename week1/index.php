@@ -16,6 +16,7 @@ $no_of_series = sizeof(get_series($db));
 
 $page_title = get_series_info($db);
 
+
 /* Landing page */
 if (new_route('/DDWT18/week1/', 'get')) {
     /* Page info */

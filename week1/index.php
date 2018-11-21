@@ -14,7 +14,7 @@ $db = connect_db('localhost', 'ddwt18_week1', 'ddwt18', 'ddwt18');
 /** @var TYPE_NAME $no_of_series */
 $no_of_series = sizeof(get_series($db));
 
-$page_title = get_series_name($db);
+$page_title = get_series_info($db);
 
 /* Landing page */
 if (new_route('/DDWT18/week1/', 'get')) {

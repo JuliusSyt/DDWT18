@@ -12,7 +12,7 @@ include 'model.php';
 $db = connect_db('localhost', 'ddwt18_week1', 'ddwt18', 'ddwt18');
 
 /** @var TYPE_NAME $no_of_series */
-$no_of_series = count_series();
+$no_of_series = count_series($db);
 
 
 /* Landing page */

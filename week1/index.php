@@ -66,10 +66,12 @@ elseif (new_route('/DDWT18/week1/overview/', 'get')) {
 /* Single Serie */
 elseif (new_route('/DDWT18/week1/serie/', 'get')) {
     /* Get series from db */
-    $serie_name = 'House of Cards';
-    $serie_abstract = 'A Congressman works with his equally conniving wife to exact revenge on the people who betrayed him.';
-    $nbr_seasons = '6';
-    $creators = 'Beau Willimon';
+    $serie_id = 1;
+    $serie_info = get_series_info($db, $serie_id);
+    $serie_name = $serie_info['Name'];
+    $serie_abstract = $serie_info['Abstract'];
+    $nbr_seasons = $serie_info['Seasons'];
+    $creators = $serie_info['Creator'];
 
     /* Page info */
     $page_title = $serie_name;

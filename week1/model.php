@@ -35,9 +35,8 @@ error_reporting(E_ALL);
 
 function count_series($pdo)
 {
-    $stmt = $pdo->prepare('SELECT * FROM ddwt18_week1');
-    $stmt->fetchAll();
-    $stmt->rowCount() ;
+    $nRows = $pdo->query('select count(*) from ddwt18_week1')->fetchColumn();
+    return $nRows;
 }
 
 /**

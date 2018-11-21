@@ -123,6 +123,9 @@ elseif (new_route('/DDWT18/week1/add/', 'get')) {
 /* Add serie POST */
 elseif (new_route('/DDWT18/week1/add/', 'post')) {
     /* Page info */
+    $serie_info = ['Name' => $_POST['Name'], 'Creator' => $_POST['Creator'], 'Seasons' => $_POST['Seasons'], 'Abstract' => $_POST['Abstract']];
+    $feedback = add_series($db, $serie_info);
+
     $page_title = 'Add Series';
     $breadcrumbs = get_breadcrumbs([
         'DDWT18' => na('/DDWT18/', False),

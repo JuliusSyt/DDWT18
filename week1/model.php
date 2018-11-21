@@ -99,7 +99,28 @@ function get_serie_table($series)
  * @return array
  */
 
-
+function add_series($pdo, $name, $creator, $seasons, $abstract)
+{
+    $stmt = $pdo->prepare("INSERT INTO ddwt18_week1 (Name, Creator, Seasons, Abstract) VALUES (?, ?, ?, ?)");
+    $stmt->execute([
+        $serie_info['Name'],
+        $serie_info['Creator'],
+        $serie_info['Seasons'],
+        $serie_info['Abstract']
+    ]);
+    $inserted = $stmt->rowCount();
+    if ($inserted == 1) {
+        return [
+            'type' => 'success',
+            'message' => sprintf("Series '%s' added to Series Overview.", $serie_info['Name'])
+        ];
+    } else {
+        return [
+            'type' => 'danger',
+            'message' => 'There was an error. The series was not added. Try it again.'
+        ];
+    }
+}
 /**
 function get_series_info($pdo, $serie_id)
 {
@@ -115,9 +136,6 @@ function get_series_info($pdo, $serie_id)
     return $serie_info_exp;
 
 }
-*/
-
-
 /**
  * Check if the route exist
  * @param string $route_uri URI to be matched

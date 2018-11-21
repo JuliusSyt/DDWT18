@@ -33,17 +33,19 @@
                     <h1><?= $page_title ?></h1>
                     <h5><?= $page_subtitle ?></h5>
                     <p><?= $page_content ?></p>
-                    <form action="/DDWT18/week1/add/" method="POST">
-                        <label for="inputName">Name</label>
-                        <input type="text" id="inputName" name="Name" required>
-                        <label for="inputCreator">Creator</label>
-                        <input type="text" id="inputCreator" name="Creator" required>
-                        <label for="inputSeasons">Seasons</label>
-                        <input type="number" id="inputCreator" name="Seasons" required>
-                        <label for="inputAbstract">Abstract</label>
-                        <textarea class="form-control" id="inputAbstract" name="Abstract" required></textarea>
-                        <button type="submit">Add series</button>
-                    </form>
+                    <div class="form-group row">
+                        <form action="/DDWT18/week1/add/" method="POST">
+                            <label for="inputName">Name</label>
+                            <input type="text" id="inputName" name="Name" required>
+                            <label for="inputCreator">Creator</label>
+                            <input type="text" id="inputCreator" name="Creator" required>
+                            <label for="inputSeasons">Seasons</label>
+                            <input type="number" id="inputCreator" name="Seasons" required>
+                            <label for="inputAbstract">Abstract</label>
+                            <textarea class="form-control" id="inputAbstract" name="Abstract" required></textarea>
+                            <button type="submit">Add series</button>
+                        </form>
+                    </div>
                 </div>
 
                 <!-- Right column -->

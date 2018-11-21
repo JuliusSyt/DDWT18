@@ -53,10 +53,10 @@ function get_series($pdo)
  * @param $pdo
  * @return array
  */
-function get_series_name($pdo)
+function get_series_info($pdo)
 {
     $stmt = $pdo->prepare('SELECT * FROM ddwt18_week1 WHERE id = ?');
-    $stmt->execute([$ID]);
+    $stmt->execute([$serie_id]);
     $serie_info = $stmt->fetch();
     $serie_info_exp = Array();
     /* Create array with htmlspecialchars */

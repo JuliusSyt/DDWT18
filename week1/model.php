@@ -11,7 +11,8 @@
  * @param $pass
  * @return PDO
  */
-function connect_db($host, $db, $user, $pass){
+function connect_db($host, $db, $user, $pass)
+{
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -32,7 +33,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-function get_series($pdo){
+function get_series($pdo)
+{
     $stmt = $pdo->prepare('SELECT * FROM ddwt18_week1');
     $stmt->execute();
     $series = $stmt->fetchAll();
@@ -45,6 +47,23 @@ function get_series($pdo){
         }
     }
     return $series_exp;
+}
+
+/**
+ * @param $pdo
+ * @return array
+ */
+function get_series_name($pdo)
+{
+    $stmt = $pdo->prepare('SELECT * FROM ddwt18_week1 WHERE id = ?');
+    $stmt->execute([$serie_id]);
+    $serie_info = $stmt->fetch();
+    $serie_info_exp = Array();
+    /* Create array with htmlspecialchars */
+    foreach ($serie_info as $key => $value) {
+        $serie_info_exp[$key] = htmlspecialchars($value);
+    }
+    return $serie_info_exp;
 }
 
 /**

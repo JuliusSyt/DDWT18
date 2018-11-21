@@ -14,6 +14,8 @@ $db = connect_db('localhost', 'ddwt18_week1', 'ddwt18', 'ddwt18');
 /** @var TYPE_NAME $no_of_series */
 $no_of_series = sizeof(get_series($db));
 
+$page_title = get_series_name($db);
+
 /* Landing page */
 if (new_route('/DDWT18/week1/', 'get')) {
     /* Page info */
@@ -75,6 +77,7 @@ elseif (new_route('/DDWT18/week1/overview/', 'get')) {
             <th scope="row">Game of Thrones</th>
             <td><a href="/DDWT18/week1/serie/" role="button" class="btn btn-primary">More info</a></td>
         </tr>
+      
 
         </tbody>
     </table>';

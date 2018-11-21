@@ -78,7 +78,9 @@ elseif (new_route('/DDWT18/week1/overview/', 'get')) {
         </tr>
 
         </tbody>
-    </table>';
+    </table>
+    ';
+    get_serie_table((get_series($db)));
 
     /* Choose Template */
     include use_template('main');

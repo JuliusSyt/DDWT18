@@ -81,7 +81,7 @@ function get_serie_table($series)
     foreach($series as $key => $value){
         $table_exp .= '
         <tr> 
-        <th scope="row">'.$value['name'].'</th>
+        <th scope="row">'.$value['Name'].'</th>
         <td><a href="/DDWT18/week1/serie/?serie_id='.$value['id'].'" role="button" class="btn btn-primary">More info</a></td>
         </tr> 
         ';

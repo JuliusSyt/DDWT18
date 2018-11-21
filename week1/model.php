@@ -33,10 +33,64 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+/**
+ * @param $pdo
+ * @return mixed
+ */
 function count_series($pdo)
 {
     $nRows = $pdo->query('select count(*) from ddwt18_week1')->fetchColumn();
     return $nRows;
+}
+
+/**
+ * @param $pdo
+ * @return array
+ */
+
+function get_series($pdo)
+{
+    $stmt = $pdo->prepare('SELECT * FROM ddwt18_week1');
+    $stmt->execute();
+    $series = $stmt->fetchAll();
+    $series_exp = Array();
+    /* Create array with htmlspecialchars */
+    foreach ($series as $key => $value){
+        foreach ($value as $user_key => $user_input) {
+            $series_exp[$key][$user_key] = htmlspecialchars($user_input);
+        }
+    }
+    return $series_exp;
+}
+
+/**
+ * @param $series
+ * @return string
+ */
+function get_serie_table($series)
+{
+    $table_exp = '
+    <table class="table table-hover">
+    <thead 
+    <tr> 
+    <th scope="col">Series</th>
+    <th scope="col"></th>
+    </tr> 
+    </thead> 
+    <tbody>';
+    foreach($series as $key => $value){
+        $table_exp .= '
+        <tr> 
+        <th scope="row">'.$value['name'].'</th>
+        <td><a href="/DDWT18/week1/serie/?serie_id='.$value['id'].'" role="button" class="btn btn-primary">More info</a></td>
+        </tr> 
+        ';
+    }
+    $table_exp .= '
+    </tbody>
+    </table>
+    ';
+    return $table_exp;
 }
 
 /**

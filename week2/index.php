@@ -11,6 +11,12 @@ include 'model.php';
 /* Connect to DB */
 $db = connect_db('localhost', 'ddwt18_week2', 'ddwt18','ddwt18');
 
+/** get user id */
+$user_id = get_user_id();
+
+/** get_user_name */
+$current_user_name = get_user_name($db, $user_id);
+
 /* Landing page */
 if (new_route('/DDWT18/week2/', 'get')) {
     /* Get Number of Series */

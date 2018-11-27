@@ -138,6 +138,10 @@ function get_serie_table($series){
         <th scope="col">Series</th>
         <th scope="col"></th>
     </tr>
+    <tr>
+        <th scope="col">Current User is <?= $current_user_name?></th>
+        <th scope="col"></th>
+    </tr>
     </thead>
     <tbody>';
     foreach($series as $key => $value){
@@ -411,4 +415,22 @@ function get_user_id(){
     } else {
         return False;
     }
+}
+
+/**
+ * @param $pdo
+ * @param $user_id
+ * @return array
+ */
+function get_user_name($pdo, $user_id){
+    $stmt = $pdo->prepare('SELECT firstname, lastname FROM users WHERE id = ?');
+    $stmt->execute([$user_id]);
+    $user_name = $stmt->fetch();
+    $user_name_exp = Array();
+
+    /* Create array with htmlspecialchars */
+    foreach ($user_name as $key => $value){
+        $user_name_exp[$key] = htmlspecialchars($value);
+    }
+    return $user_name_exp;
 }

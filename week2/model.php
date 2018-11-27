@@ -130,6 +130,7 @@ function get_navigation($navigation){
  * @param array $series with series from the db
  * @return string
  */
+
 function get_serie_table($series){
     $table_exp = '
     <table class="table table-hover">

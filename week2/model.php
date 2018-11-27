@@ -426,7 +426,7 @@ function get_user_id(){
 function get_user_name($pdo, $user_id){
     $stmt = $pdo->prepare('SELECT firstname, lastname FROM users WHERE id = ?');
     $stmt->execute([$user_id]);
-    $user_name = $stmt->fetch();
+    $user_name = $stmt->fetchAll();
     $user_name_exp = Array();
 
     /* Create array with htmlspecialchars */

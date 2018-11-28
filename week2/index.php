@@ -18,9 +18,31 @@ $user_id = get_user_id();
 $current_user_name = get_user_name($db, $user_id);
 
 
-/* 1: move this line above first route */
+/* set right column to template cards */
 $right_column = use_template('cards');
+
+/* assign int to nbr_series */
 $nbr_series = count_series($db);
+
+/* set template with id's as int */
+$navigation_tpl = Array(
+    1 => Array(
+        'name' => 'Home',
+        'url' => '/DDWT18/week2/' ),
+    2 => Array(
+        'name' => 'Overview',
+        'url' => '/DDWT18/week2/overview/'
+    ),
+    3 => Array(
+        'name' => 'Add Series',
+        'url' => '/DDWT18/week2/add/' ),
+    4 => Array(
+        'name' => 'My Account',
+        'url' => '/DDWT18/week2/myaccount/' ),
+    5 => Array(
+        'name' => 'Register',
+        'url' => '/DDWT18/week2/register/'
+    ));
 
 /* Landing page */
 if (new_route('/DDWT18/week2/', 'get')) {
@@ -32,13 +54,7 @@ if (new_route('/DDWT18/week2/', 'get')) {
         'Week 2' => na('/DDWT18/week2/', False),
         'Home' => na('/DDWT18/week2/', True)
     ]);
-    $navigation = get_navigation([
-        'Home' => na('/DDWT18/week2/', True),
-        'Overview' => na('/DDWT18/week2/overview/', False),
-        'Add series' => na('/DDWT18/week2/add/', False),
-        'My Account' => na('/DDWT18/week2/myaccount/', False),
-        'Registration' => na('/DDWT18/week2/register/', False)
-    ]);
+    $navigation = $navigation = get_navigation($navigation_tpl, 1);
 
     /* Page content */
     $page_subtitle = 'The online platform to list your favorite series';
@@ -58,13 +74,7 @@ elseif (new_route('/DDWT18/week2/overview/', 'get')) {
         'Week 2' => na('/DDWT18/week2/', False),
         'Overview' => na('/DDWT18/week2/overview', True)
     ]);
-    $navigation = get_navigation([
-        'Home' => na('/DDWT18/week2/', False),
-        'Overview' => na('/DDWT18/week2/overview', True),
-        'Add series' => na('/DDWT18/week2/add/', False),
-        'My Account' => na('/DDWT18/week2/myaccount/', False),
-        'Registration' => na('/DDWT18/week2/register/', False)
-    ]);
+    $navigation = $navigation = get_navigation($navigation_tpl, 2);
 
     /* Page content */
     $page_subtitle = 'The overview of all series';
@@ -92,14 +102,7 @@ elseif (new_route('/DDWT18/week2/serie/', 'get')) {
         'Overview' => na('/DDWT18/week2/overview/', False),
         $serie_info['name'] => na('/DDWT18/week2/serie/?serie_id='.$serie_id, True)
     ]);
-    $navigation = get_navigation([
-        'Home' => na('/DDWT18/week2/', False),
-        'Overview' => na('/DDWT18/week2/overview', True),
-        'Add series' => na('/DDWT18/week2/add/', False),
-        'My Account' => na('/DDWT18/week2/myaccount/', False),
-        'Registration' => na('/DDWT18/week2/register/', False)
-    ]);
-
+    $navigation = $navigation = get_navigation($navigation_tpl, 2);
     /* Page content */
     $page_subtitle = sprintf("Information about %s", $serie_info['name']);
     $page_content = $serie_info['abstract'];
@@ -121,13 +124,7 @@ elseif (new_route('/DDWT18/week2/add/', 'get')) {
         'Week 2' => na('/DDWT18/week2/', False),
         'Add Series' => na('/DDWT18/week2/new/', True)
     ]);
-    $navigation = get_navigation([
-        'Home' => na('/DDWT18/week2/', False),
-        'Overview' => na('/DDWT18/week2/overview', False),
-        'Add series' => na('/DDWT18/week2/add/', True),
-        'My Account' => na('/DDWT18/week2/myaccount/', False),
-        'Registration' => na('/DDWT18/week2/register/', False)
-    ]);
+    $navigation = $navigation = get_navigation($navigation_tpl, 3);
 
     /* Page content */
     $page_subtitle = 'Add your favorite series';
@@ -151,13 +148,7 @@ elseif (new_route('/DDWT18/week2/add/', 'post')) {
         'Week 2' => na('/DDWT18/week2/', False),
         'Add Series' => na('/DDWT18/week2/add/', True)
     ]);
-    $navigation = get_navigation([
-        'Home' => na('/DDWT18/week2/', False),
-        'Overview' => na('/DDWT18/week2/overview', False),
-        'Add series' => na('/DDWT18/week2/add/', True),
-        'My Account' => na('/DDWT18/week2/myaccount/', False),
-        'Registration' => na('/DDWT18/week2/register/', False)
-    ]);
+    $navigation = $navigation = get_navigation($navigation_tpl, 3);
 
     /* Page content */
     $page_subtitle = 'Add your favorite series';
@@ -260,13 +251,7 @@ elseif (new_route('/DDWT18/week2/remove/', 'post')) {
         'Week 2' => na('/DDWT18/week2/', False),
         'Overview' => na('/DDWT18/week2/overview', True)
     ]);
-    $navigation = get_navigation([
-        'Home' => na('/DDWT18/week2/', False),
-        'Overview' => na('/DDWT18/week2/overview', True),
-        'Add series' => na('/DDWT18/week2/add/', False),
-        'My Account' => na('/DDWT18/week2/myaccount/', False),
-        'Registration' => na('/DDWT18/week2/register/', False)
-    ]);
+    $navigation = $navigation = get_navigation($navigation_tpl, 2);
 
     /* Page content */
     $page_subtitle = 'The overview of all series';

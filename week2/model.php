@@ -107,12 +107,25 @@ function get_navigation($template, $active_id){
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">';
     foreach ($template as $name => $info) {
-        if ($info[1]){
+        if ($active_id == 1){
             $navigation_exp .= '<li class="nav-item active">';
-            $navigation_exp .= '<a class="nav-link" href="'.$info[$active_id].'">'.$name.'</a>';
-        }else{
-            $navigation_exp .= '<li class="nav-item">';
-            $navigation_exp .= '<a class="nav-link" href="'.$info[$active_id].'">'.$name.'</a>';
+            $navigation_exp .= '<a class="nav-link" href="'.$info[1].'">'.$name.'</a>';
+        }
+        if ($active_id == 2){
+            $navigation_exp .= '<li class="nav-item active">';
+            $navigation_exp .= '<a class="nav-link" href="'.$info[2].'">'.$name.'</a>';
+        }
+        if ($active_id == 3){
+            $navigation_exp .= '<li class="nav-item active">';
+            $navigation_exp .= '<a class="nav-link" href="'.$info[3].'">'.$name.'</a>';
+        }
+        if ($active_id == 4){
+            $navigation_exp .= '<li class="nav-item active">';
+            $navigation_exp .= '<a class="nav-link" href="'.$info[4].'">'.$name.'</a>';
+        }
+        if ($active_id == 5){
+            $navigation_exp .= '<li class="nav-item active">';
+            $navigation_exp .= '<a class="nav-link" href="'.$info[5].'">'.$name.'</a>';
         }
 
         $navigation_exp .= '</li>';

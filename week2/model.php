@@ -396,6 +396,15 @@ function count_series($pdo){
     return $series;
 }
 
+function count_users($pdo){
+    /* Get users */
+    $stmt = $pdo->prepare('SELECT * FROM users');
+    $stmt->execute();
+    $users = $stmt->rowCount();
+    return $users;
+}
+
+
 /**
  * Changes the HTTP Header to a given location
  * @param string $location location to be redirected to

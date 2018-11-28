@@ -17,13 +17,14 @@ $user_id = get_user_id();
 /** get_user_name */
 $current_user_name = get_user_name($db, $user_id);
 
-
 /* set right column to template cards */
 $right_column = use_template('cards');
 
 /* assign int to nbr_series */
 $nbr_series = count_series($db);
 
+/* assign int value to nbr_users */
+$nbr_users = count_users($db);
 
 
 /* Landing page */
@@ -81,8 +82,6 @@ elseif (new_route('/DDWT18/week2/overview/', 'get')) {
 
 /* Single Serie */
 elseif (new_route('/DDWT18/week2/serie/', 'get')) {
-    /* Get Number of Series */
-
 
     /* Get series from db */
     $serie_id = $_GET['serie_id'];
@@ -116,7 +115,6 @@ elseif (new_route('/DDWT18/week2/serie/', 'get')) {
 
 /* Add serie GET */
 elseif (new_route('/DDWT18/week2/add/', 'get')) {
-    /* Get Number of Series */
 
     /* Page info */
     $page_title = 'Add Series';
@@ -145,9 +143,6 @@ elseif (new_route('/DDWT18/week2/add/', 'get')) {
 
 /* Add serie POST */
 elseif (new_route('/DDWT18/week2/add/', 'post')) {
-    /* Get Number of Series */
-
-
     /* Page info */
     $page_title = 'Add Series';
     $breadcrumbs = get_breadcrumbs([

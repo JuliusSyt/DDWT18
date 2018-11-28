@@ -48,7 +48,6 @@ function new_route($route_uri, $request_type){
     if ($route_uri_expl == $current_path_expl && $_SERVER['REQUEST_METHOD'] == strtoupper($request_type)) {
         return True;
     }
-    $right_column = use_template('cards');
 }
 
 /**

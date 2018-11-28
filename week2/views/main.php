@@ -40,7 +40,7 @@
                 <div class="col-md-4">
 
                     <?php include $right_column ?>
-
+                    $right_column = use_template('cards');
                 </div>
 
             </div>

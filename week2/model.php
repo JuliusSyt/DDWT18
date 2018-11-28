@@ -109,10 +109,10 @@ function get_navigation($template, $active_id){
     foreach ($template as $id => $info) {
         if ($active_id == $id){
             $navigation_exp .= '<li class="nav-item active">';
-            $navigation_exp .= '<a class="nav-link" href="'.$info['url'].'">'.$name.'</a>';
+            $navigation_exp .= '<a class="nav-link" href="'.$info['url'].'">'.$info['name'].'</a>';
         }else{
             $navigation_exp .= '<li class="nav-item">';
-            $navigation_exp .= '<a class="nav-link" href="'.$info['url'].'">'.$name.'</a>';
+            $navigation_exp .= '<a class="nav-link" href="'.$info['url'].'">'.$info['name'].'</a>';
         }
 
         $navigation_exp .= '</li>';

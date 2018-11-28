@@ -51,8 +51,6 @@ $navigation_tpl = Array(
         'name' => 'Login',
         'url' => '/DDWT18/week2/login/'
     )
-
-
 );
 
 /* Landing page */

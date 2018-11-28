@@ -97,7 +97,7 @@ function get_breadcrumbs($breadcrumbs) {
  * @param array $navigation Array with as Key the page name and as Value the corresponding url
  * @return string html code that represents the navigation
  */
-function get_navigation($navigation){
+function get_navigation($template, $active_id){
     $navigation_exp = '
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand">Series Overview</a>
@@ -106,13 +106,13 @@ function get_navigation($navigation){
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">';
-    foreach ($navigation as $name => $info) {
-        if ($info[1]){
+    foreach ($template as $id => $info) {
+        if ($active_id == $id){
             $navigation_exp .= '<li class="nav-item active">';
-            $navigation_exp .= '<a class="nav-link" href="'.$info[0].'">'.$name.'</a>';
+            $navigation_exp .= '<a class="nav-link" href="'.$info['url'].'">'.$name.'</a>';
         }else{
             $navigation_exp .= '<li class="nav-item">';
-            $navigation_exp .= '<a class="nav-link" href="'.$info[0].'">'.$name.'</a>';
+            $navigation_exp .= '<a class="nav-link" href="'.$info['url'].'">'.$name.'</a>';
         }
 
         $navigation_exp .= '</li>';

@@ -43,6 +43,10 @@
                             <th scope="row">Number of seasons</th>
                             <td><?= $nbr_seasons ?></td>
                         </tr>
+                        <tr>
+                            <th scope="row">Added by user</th>
+                            <td><?= $added_by ?></td>
+                        </tr>
                         </tbody>
                     </table>
                     <div class="row">

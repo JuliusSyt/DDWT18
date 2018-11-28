@@ -14,8 +14,8 @@ $db = connect_db('localhost', 'ddwt18_week2', 'ddwt18','ddwt18');
 /** get user id */
 $user_id = get_user_id();
 
-/** get_user_name */
-$current_user_name = get_user_name($db, $user_id);
+/** get_username */
+$current_user_name = get_username($db, $user_id);
 
 /* set right column to template cards */
 $right_column = use_template('cards');
@@ -108,7 +108,7 @@ elseif (new_route('/DDWT18/week2/serie/', 'get')) {
     $page_content = $serie_info['abstract'];
     $nbr_seasons = $serie_info['seasons'];
     $creators = $serie_info['creator'];
-    $added_by = get_user_name($db, $user_id);
+    $added_by = get_username($db, $user_id);
 
     /* Choose Template */
     include use_template('serie');

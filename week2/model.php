@@ -437,7 +437,8 @@ function get_username($pdo, $user_id){
     $stmt = $pdo->prepare('SELECT firstname, lastname FROM users WHERE id = ?');
     $stmt->execute([$user_id]);
     $user_name = $stmt->fetchAll();
-    return $user_name;
+    $fullname = user_name[0] + user_name[1];
+    return $fullname;
 }
 
 function register_user($pdo, $form_data)

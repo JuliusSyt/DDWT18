@@ -107,7 +107,7 @@ function get_navigation($template, $active_id){
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">';
     foreach ($template as $name => $info) {
-        if ($info[$active_id]){
+        if ($info[1]){
             $navigation_exp .= '<li class="nav-item active">';
             $navigation_exp .= '<a class="nav-link" href="'.$info[$active_id].'">'.$name.'</a>';
         }else{

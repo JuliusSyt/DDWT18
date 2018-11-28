@@ -215,6 +215,7 @@ function get_serieinfo($pdo, $serie_id){
  * @param string $message Error/Success message
  * @return string
  */
+
 function get_error($feedback){
     $error_exp = '
         <div class="alert alert-'.$feedback['type'].'" role="alert">
@@ -485,6 +486,7 @@ function register_user($pdo, $form_data)
             'message' => sprintf('There was an error: %s', $e->getMessage())
         ];
     }
+
     /* Login user and redirect */
     session_start();
     $_SESSION['user_id'] = $user_id;

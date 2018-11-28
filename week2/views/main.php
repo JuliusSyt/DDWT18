@@ -38,7 +38,7 @@
 
                 <!-- Right column -->
                 <div class="col-md-4">
-                    $right_column = use_template('cards');
+
                     <?php include $right_column ?>
                 </div>
 

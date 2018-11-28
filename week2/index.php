@@ -19,6 +19,7 @@ $current_user_name = get_user_name($db, $user_id);
 
 
 /* 1: move this line above first route */
+$right_column = use_template('cards');
 $nbr_series = count_series($db);
 
 /* Landing page */

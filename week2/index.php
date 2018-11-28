@@ -29,23 +29,31 @@ $nbr_users = count_users($db);
 $navigation_tpl = Array(
     1 => Array(
         'name' => 'Home',
-        'url' => '/DDWT18/week2/' ),
+        'url' => '/DDWT18/week2/'
+    ),
     2 => Array(
         'name' => 'Overview',
-        'url' => '/DDWT18/week2/overview/'),
+        'url' => '/DDWT18/week2/overview/'
+    ),
     3 => Array(
         'name' => 'Add',
-        'url' => '/DDWT18/week2/add/' ),
+        'url' => '/DDWT18/week2/add/'
+    ),
     4 => Array(
         'name' => 'My Account',
-        'url' => '/DDWT18/week2/myaccount/'),
+        'url' => '/DDWT18/week2/myaccount/'
+    ),
     5 => Array(
         'name' => 'Register',
-        'url' => '/DDWT18/week2/register/')
+        'url' => '/DDWT18/week2/register/'
+    ),
     6 => Array(
-        'name' => 'login',
-        'url' => '/DDWT18/week2/login/')
-    );
+        'name' => 'Login',
+        'url' => '/DDWT18/week2/login/'
+    )
+
+
+);
 
 /* Landing page */
 if (new_route('/DDWT18/week2/', 'get')) {

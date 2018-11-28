@@ -54,7 +54,7 @@ if (new_route('/DDWT18/week2/', 'get')) {
         'Week 2' => na('/DDWT18/week2/', False),
         'Home' => na('/DDWT18/week2/', True)
     ]);
-    $navigation = $navigation = get_navigation($navigation_tpl, 1);
+    $navigation = get_navigation($navigation_tpl, 1);
 
     /* Page content */
     $page_subtitle = 'The online platform to list your favorite series';
@@ -74,7 +74,7 @@ elseif (new_route('/DDWT18/week2/overview/', 'get')) {
         'Week 2' => na('/DDWT18/week2/', False),
         'Overview' => na('/DDWT18/week2/overview', True)
     ]);
-    $navigation = $navigation = get_navigation($navigation_tpl, 2);
+    $navigation = get_navigation($navigation_tpl, 2);
 
     /* Page content */
     $page_subtitle = 'The overview of all series';
@@ -102,7 +102,7 @@ elseif (new_route('/DDWT18/week2/serie/', 'get')) {
         'Overview' => na('/DDWT18/week2/overview/', False),
         $serie_info['name'] => na('/DDWT18/week2/serie/?serie_id='.$serie_id, True)
     ]);
-    $navigation = $navigation = get_navigation($navigation_tpl, 2);
+    $navigation = get_navigation($navigation_tpl, 2);
     /* Page content */
     $page_subtitle = sprintf("Information about %s", $serie_info['name']);
     $page_content = $serie_info['abstract'];
@@ -124,7 +124,7 @@ elseif (new_route('/DDWT18/week2/add/', 'get')) {
         'Week 2' => na('/DDWT18/week2/', False),
         'Add Series' => na('/DDWT18/week2/new/', True)
     ]);
-    $navigation = $navigation = get_navigation($navigation_tpl, 3);
+    $navigation = get_navigation($navigation_tpl, 3);
 
     /* Page content */
     $page_subtitle = 'Add your favorite series';
@@ -148,7 +148,7 @@ elseif (new_route('/DDWT18/week2/add/', 'post')) {
         'Week 2' => na('/DDWT18/week2/', False),
         'Add Series' => na('/DDWT18/week2/add/', True)
     ]);
-    $navigation = $navigation = get_navigation($navigation_tpl, 3);
+    $navigation = get_navigation($navigation_tpl, 3);
 
     /* Page content */
     $page_subtitle = 'Add your favorite series';
@@ -251,7 +251,7 @@ elseif (new_route('/DDWT18/week2/remove/', 'post')) {
         'Week 2' => na('/DDWT18/week2/', False),
         'Overview' => na('/DDWT18/week2/overview', True)
     ]);
-    $navigation = $navigation = get_navigation($navigation_tpl, 2);
+    $navigation = get_navigation($navigation_tpl, 2);
 
     /* Page content */
     $page_subtitle = 'The overview of all series';

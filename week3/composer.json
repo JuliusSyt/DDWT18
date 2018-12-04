@@ -1,0 +1,15 @@
+{
+  "name": "JuliusSyt/DDWT18_week3",
+  "description": "",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Julius Sijtstra",
+      "email": "J.C.Sijtstra@student.rug.nl"
+    }
+  ],
+  "require": {
+    "bramus/router": "1.3"
+  }
+}

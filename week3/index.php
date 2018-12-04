@@ -26,6 +26,13 @@ $router->mount('/api', function() use($router, $db){
         echo get_series($db);
     });
 
+    $router->get('/series', function() use ($db) {
+        echo get_seriesinfo($db, $serie_id);
+    });
+
+    $router->get('/series', function() use ($db) {
+        echo count_series($db);
+    });
 });
 
 $router->set404(function() {

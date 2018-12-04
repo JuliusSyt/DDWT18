@@ -54,8 +54,7 @@ function get_series($pdo){
     $stmt = $pdo->prepare('SELECT * FROM series');
     $stmt->execute();
     $series = $stmt->fetchAll();
-
-    return $series;
+    return json_encode($series);
 }
 
 /**
@@ -64,6 +63,7 @@ function get_series($pdo){
  * @param int $serie_id id from the serie
  * @return mixed
  */
+
 function get_serieinfo($pdo, $serie_id){
     $stmt = $pdo->prepare('SELECT * FROM series WHERE id = ?');
     $stmt->execute([$serie_id]);
@@ -74,7 +74,7 @@ function get_serieinfo($pdo, $serie_id){
     foreach ($serie_info as $key => $value){
         $serie_info_exp[$key] = htmlspecialchars($value);
     }
-    return $serie_info_exp;
+    return json_encode($serie_info_exp);
 }
 
 /**
@@ -247,13 +247,18 @@ function count_series($pdo){
     $stmt = $pdo->prepare('SELECT * FROM series');
     $stmt->execute();
     $series = $stmt->rowCount();
-    return $series;
+    return json_encode($series);
 }
 
 /**
  * Changes the HTTP Header to a given location
  * @param string $location location to be redirected to
  */
+
+function http_content_type($content_type){
+    header('Content-Type: '.$content_type);
+};
+
 function redirect($location){
     header(sprintf('Location: %s', $location));
     die();

@@ -19,9 +19,16 @@ $db = connect_db('localhost', 'ddwt18_week3', 'ddwt18', 'ddwt18');
 $router = new \Bramus\Router\Router();
 
 // Add routes here
-$router->get('/api/series/(\d+)', function($series_id) use ($db) {
-    $series_info = get_serieinfo($db, $series_id);
-});
+$router->mount('/api', function() use($router){
+
+    $router->get('/', function(){
+        echo 'overview';
+    });
+}
+
+
+);
+
 
 /* Run the router */
 $router->run();

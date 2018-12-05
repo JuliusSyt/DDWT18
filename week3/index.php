@@ -22,7 +22,7 @@ $router = new \Bramus\Router\Router();
 $router->mount('/api', function() use($router, $db){
     http_content_type('application/json');
 
-    $router->get('/', function() use ($db) {
+    $router->get('/', function()  {
         echo json_encode("hello world");
     });
 

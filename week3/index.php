@@ -6,8 +6,6 @@
  * Time: 15:25
  */
 
-echo "Hello World";
-
 /* Require composer autoloader */
 require __DIR__ . '/vendor/autoload.php';
 
@@ -48,6 +46,24 @@ $router->mount('/api', function() use($router, $db){
         // Retrieve and output information
         remove_serie($db, $id);
     });
+
+    /* Post for individual serie */
+    $router->post('/series', function($_POST) use($db) {
+        // Retrieve and output information
+        add_serie($db, $_POST);
+    });
+
+    /* Update for inidividual serie */
+    $router->put('/series/(\d+)', function($id) use($db) {
+        // Fake $_PUT
+        $_PUT = array();
+        parse_str(file_get_contents('php://input'), $_PUT);
+
+    });
+});
+
+$router->get('/series', function() use ($db) {
+    echo count_series($db);
 });
 
 $router->set404(function() {

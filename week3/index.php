@@ -24,11 +24,11 @@ $router->mount('/api', function() use($router, $db){
     http_content_type('application/json');
 
     $router->get('/series', function() use ($db) {
-        return (get_series($db));
+        echo (get_series($db));
     });
 
     $router->get('/series', function() use ($db) {
-        return (count_series($db));
+        echo (count_series($db));
     });
 
     /* GET for reading individual series */

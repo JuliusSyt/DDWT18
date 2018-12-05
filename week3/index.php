@@ -45,6 +45,13 @@ $router->mount('/api', function() use($router, $db){
         remove_serie($db, $id);
     });
 
+    /* Post for individual serie */
+    $router->post('/series', function($_POST) use($db) {
+        // Retrieve and output information
+        add_serie($db, $_POST);
+    });
+
+
 });
 
 $router->set404(function() {

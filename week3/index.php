@@ -35,7 +35,7 @@ $router->mount('/api', function() use($router, $db){
     $router->get('/series/(\d+)', function($id) use($db) {
         // Retrieve and output information
         $serie_info = get_serieinfo($db, $id);
-        return ($serie_info);
+        echo ($serie_info);
     });
 
 });

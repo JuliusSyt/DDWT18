@@ -22,6 +22,8 @@ $router = new \Bramus\Router\Router();
 $router->mount('/api', function() use($router, $db){
     http_content_type('application/json');
 
+});
+
     $router->get('/series', function() use ($db) {
         echo get_series($db);
     });
@@ -60,11 +62,6 @@ $router->mount('/api', function() use($router, $db){
         parse_str(file_get_contents('php://input'), $_PUT);
 
     });
-});
-
-$router->get('/series', function() use ($db) {
-    echo count_series($db);
-});
 
 $router->set404(function() {
      header('HTTP/1.1 404 Not Found');{

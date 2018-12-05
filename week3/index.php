@@ -6,6 +6,8 @@
  * Time: 15:25
  */
 
+echo "Hello World";
+
 /* Require composer autoloader */
 require __DIR__ . '/vendor/autoload.php';
 

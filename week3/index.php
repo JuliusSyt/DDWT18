@@ -39,16 +39,11 @@ $router->mount('/api', function() use($router, $db){
         return ($serie_info);
     });
 
-    /* DELETE for individual serie */
-    $router->delete('/series/(\d+)', function($id) use($db) {
-        // Retrieve and output information
-        remove_serie($db, $id);
-    });
-
     /* Post for individual serie */
     $router->post('/series', function($_POST) use($db) {
         // Retrieve and output information
-        add_serie($db, $_POST);
+        $feedback = add_serie($db, $_POST);
+        return $feedback;
     });
 
 

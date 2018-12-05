@@ -27,11 +27,24 @@ $router->mount('/api', function() use($router, $db){
     });
 
     $router->get('/series', function() use ($db) {
-        echo get_seriesinfo($db, $serie_id);
     });
 
     $router->get('/series', function() use ($db) {
         echo count_series($db);
+    });
+
+    /* GET for reading individual series */
+    $router->get('/series/(\d+)', function($id) use($db) {
+        // Retrieve and output information
+        $serie_info = get_serieinfo($db, $id);
+        return $serie_info;
+
+    });
+
+    /* DELETE for individual serie */
+    $router->delete('/series/(\d+)', function($id) use($db) {
+        // Retrieve and output information
+        remove_serie($db, $id);
     });
 });
 

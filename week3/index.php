@@ -29,9 +29,11 @@ $router->mount('/api', function() use($router, $db){
     });
     */
 
+    /*
     $router->get('/series', function() use ($db) {
         echo (count_series($db));
     });
+    */
 
     /* GET for reading individual series */
     $router->get('/series/(\d+)', function($id) use($db) {

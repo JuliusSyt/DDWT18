@@ -39,6 +39,12 @@ $router->mount('/api', function() use($router, $db){
         return ($serie_info);
     });
 
+    /* DELETE for individual serie */
+    $router->delete('/series/(\d+)', function($id) use($db) {
+        // Retrieve and output information
+        remove_serie($db, $id);
+    });
+
 });
 
 $router->set404(function() {

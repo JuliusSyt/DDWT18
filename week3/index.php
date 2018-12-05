@@ -23,23 +23,32 @@ $router = new \Bramus\Router\Router();
 $router->mount('/api', function() use($router, $db){
     http_content_type('application/json');
 
-    /*
     $router->get('/series', function() use ($db) {
         echo (get_series($db));
     });
-    */
 
-    /*
+
     $router->get('/series', function() use ($db) {
         echo (count_series($db));
     });
-    */
 
     /* GET for reading individual series */
     $router->get('/series/(\d+)', function($id) use($db) {
         // Retrieve and output information
         $serie_info = get_serieinfo($db, $id);
         echo ($serie_info);
+    });
+
+    /* DELETE for individual serie */
+    $router->delete('/series/(\d+)', function($id) use($db) {
+        // Retrieve and output information
+        remove_serie($db, $id);
+    });
+
+    /* Post for individual serie */
+    $router->post('/series', function($_POST) use($db) {
+        // Retrieve and output information
+        add_serie($db, $_POST);
     });
 
 });

@@ -18,7 +18,6 @@ $db = connect_db('localhost', 'ddwt18_week3', 'ddwt18', 'ddwt18');
 /* Create Router instance */
 $router = new \Bramus\Router\Router();
 
-echo ("hello world");
 
 // Add routes here
 $router->mount('/api', function() use($router, $db){

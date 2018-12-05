@@ -22,7 +22,9 @@ $router = new \Bramus\Router\Router();
 $router->mount('/api', function() use($router, $db){
     http_content_type('application/json');
 
-});
+    $router->get('/series', function() use ($db) {
+        echo "hello world";
+    });
 
     $router->get('/series', function() use ($db) {
         echo get_series($db);
@@ -62,7 +64,7 @@ $router->mount('/api', function() use($router, $db){
         parse_str(file_get_contents('php://input'), $_PUT);
 
     });
-
+});
 $router->set404(function() {
      header('HTTP/1.1 404 Not Found');{
          echo'Your requested page was not found';

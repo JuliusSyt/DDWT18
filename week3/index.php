@@ -23,7 +23,7 @@ $router->mount('/api', function() use($router, $db){
     http_content_type('application/json');
 
     $router->get('/series', function() use ($db) {
-        echo "hello world";
+        echo json_encode("hello world");
     });
 
     $router->get('/series', function() use ($db) {

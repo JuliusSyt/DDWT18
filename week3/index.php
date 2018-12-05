@@ -25,11 +25,11 @@ $router->mount('/api', function() use($router, $db){
     http_content_type('application/json');
 
     $router->get('/series', function() use ($db) {
-        echo (get_series($db));
+        return (get_series($db));
     });
 
     $router->get('/series', function() use ($db) {
-        echo (count_series($db));
+        return (count_series($db));
     });
 
     /* GET for reading individual series */
@@ -38,8 +38,6 @@ $router->mount('/api', function() use($router, $db){
         $serie_info = get_serieinfo($db, $id);
         return ($serie_info);
     });
-
-
 
 });
 

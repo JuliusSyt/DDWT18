@@ -39,12 +39,6 @@ $router->mount('/api', function() use($router, $db){
         return ($serie_info);
     });
 
-    /* Post for individual serie */
-    $router->post('/series', function($_POST) use($db) {
-        // Retrieve and output information
-        $feedback = add_serie($db, $_POST);
-        return $feedback;
-    });
 
 
 });
